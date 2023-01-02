@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Hepta+Slab:wght@300&display=swap');
+body{
+    font-family: 'Hepta Slab', serif;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+.title{
+    font-size: 75px;
+    margin: 0;
+}
+.randomStuffDiv{
+    width: 800px;
+    height: 300px;
+    margin-top: 10px;
+    border: 3px solid black;
+    position: relative;
+}
+.randomStuff{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+}
+.randomStuff a{
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-columns: 1fr fit-content(60%);
+    position: relative;
+}
+
+a img{
+    display: block;
+    height: 300px;
+}
+#webContainer{
+    position: relative;
+    width: 1250px;
+}
+.item{
+    width: 100%;
+    position: relative;
+    border-bottom: 1px solid gray;
+    padding: 10% 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    box-sizing: border-box;
+    padding: 30px;
+}
+.thumbnail{
+    width: 90%;
+    position: relative;
+    border: 7px solid black;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: span 2;
+}
+.thumbnail img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+h5{
+    font-size: 15px;
+    grid-column: 2 / 3;
+    transition: all ease 0.3s;
+    cursor: pointer;
+}
+h5:hover{
+    opacity: 50%;
+}
+.inform{
+    font-size: 25px;
+    margin: 0;
+}
+.item:nth-child(3n+1) .title::before{
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: salmon;
+    border-radius: 50%;
+    top: 63px;
+    left: -10px;
+}
+.item:nth-child(3n+2) .title::before{
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: rgb(64, 244, 76);
+    top: 63px;
+    left: -10px;
+}
+.item:nth-child(3n) .title::before{
+    content: "";
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 30px solid rgb(78, 78, 255);
+    top: 63px;
+    left: -10px;
+}
+.a1{
+    z-index: 3;
+}
+h1{
+    padding: 30px;
+    color: black;
+}
+.leftbutton{
+    width: 40px;
+    height: 40px;
+    background-image: url(Thumbnails/leftarrow.svg);
+    background-size: cover;
+    position: absolute;
+    left: -20px;
+    top: 130px;
+    border-radius: 50%;
+    z-index: 100;
+}
+.rightbutton{
+    width: 40px;
+    height: 40px;
+    background-image: url(Thumbnails/rightarrow.svg);
+    background-size: cover;
+    position: absolute;
+    right: -20px;
+    top: 130px;
+    border-radius: 50%;
+    z-index: 100;
+    display: block;
+}

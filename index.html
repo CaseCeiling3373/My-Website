@@ -1,81 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CaseCeiling3373's Website</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <p></p>
-    <p></p>
-    <h1 class="title">CaseCeiling3373's Website</h1>
-    <div class="randomStuffDiv">
-        <button class="leftbutton" onclick="previousBanner();"></button>
-        <button class="rightbutton" onclick="nextBanner();"></button>
-        <div class="randomStuff a1">
-            <a href="https://www.youtube.com/watch?v=HIlBb3MIZWY">
-                <h1>My 300 Subscriber Special!</h1>
-                <img src="./Thumbnails/betterqualityunderstand.jpeg">
-            </a>
-        </div>
-            <div class="randomStuff a2">
-                <a href="https://www.youtube.com/watch?v=T2fjQrsKbAM">
-                <h1>My Favorite Song!</h1>
-                <img src="./Thumbnails/understandbetter.jpeg">
-            </a>
-        </div>
-        <div class="randomStuff a3">
-            <a href="https://www.youtube.com/channel/UCA3PLfFMuT963D-qGVjAFaw">
-                <h1>My Favorite Artist!</h1>
-                <img src="./Thumbnails/boywithuke.jpeg">
-            </a>
-        </div>
-        <div class="randomStuff a4">
-            <a href="https://www.youtube.com/watch?v=jocAA8SuI9I">
-                <h1>My First Video!</h1>
-                <img src="./Thumbnails/yeet.webp">
-            </a>
-        </div>
-        <div class="randomStuff a5">
-            <a href="https://www.youtube.com/watch?v=mt5_ch-AsjY&list=TLPQMTcxMjIwMjK7TjMFlEs-_g">
-                <h1>My First Hitsync!</h1>
-                <img src="./Thumbnails/hitsync.webp">
-            </a>
-        </div> 
-        <div class="randomStuff a6">
-            <a href="https://www.youtube.com/watch?v=GanQmNe-CVQ">
-                <h1>My First Clip!</h1>
-                <img src="./Thumbnails/lagback.webp">
-            </a>
-        </div>
-        <div class="randomStuff a7">
-            <a href="https://www.youtube.com/watch?v=rATQucj_XB4">
-                <h1>My Most Viewed Youtube Video!</h1>
-                <img src="./Thumbnails/mostview.webp">
-            </a>
-        </div>
-        <div class="randomStuff a8">
-            <a href="https://www.youtube.com/@jaidenanimations">
-                <h1>Favorite Animations Channel!</h1>
-                <img src="./Thumbnails/jaidenanimations.jpeg">
-            </a>
-        </div>
-    </div>
-    <p></p>
-    <p></p>
-    <div class="UI"></div>
-    <div id="webContainer"></div>
-    <p></p>
-    <p></p>
-    <p></p>
-    <h1>Sub to CaseCeiling3373</h1>
-    <h3>:D</h3>
-    <p></p>
-    
+var webContainer = document.getElementById('webContainer');
 
-    <script type="text/javascript" src="projects.js"></script>
-    <script type="text/javascript" src="main.js"></script>
-</body>
-</html>
+for(var i = 0; i < projects.length; i++){
+    const item = document.createElement('div');
+    const title = document.createElement('h2');
+    const inform = document.createElement('h4');
+    const link = document.createElement('h5');
+    const thumbnail = document.createElement('div');
+    const img = document.createElement('img');
+
+    title.innerHTML = projects[i].title;
+    link.innerHTML = "View Project";
+        const l = projects[i].link;
+    link.addEventListener('click', function(){
+        location.href = l;
+        });
+    inform.innerHTML = projects[i].inform;
+    const newImg = new Image();
+    newImg.onload = function(){
+        img.src = newImg.src;
+        item.classList = "item";
+        title.classList = "title";
+        thumbnail.classList = "thumbnail";
+        inform.classList = "inform";
+
+        item.appendChild(title);
+        item.appendChild(inform);
+        item.appendChild(link);
+        item.appendChild(thumbnail);
+        thumbnail.appendChild(img);
+
+        webContainer.appendChild(item);
+    }
+    newImg.src = './thumbnails/' + projects[i].img;
+
+    
+}
+
+
+var banners = document.getElementsByClassName("randomStuff");
+var currIdx = 0;
+
+function nextBanner(){
+    currIdx = (currIdx + 1)%banners.length;
+    for(var i = 0; i<banners.length; i++){
+        if(i == currIdx){
+            banners[i].style.zIndex = 5;
+        }else{
+            banners[i].style.zIndex = 3;  
+        }
+    }
+}
+
+function previousBanner(){
+    currIdx = (currIdx - 1 + banners.length)%banners.length;
+    for(var i = 0; i<banners.length; i++){
+        if(i == currIdx){
+            banners[i].style.zIndex = 5;
+        }else{
+            banners[i].style.zIndex = 3;  
+        }
+    }
+}

@@ -20,7 +20,7 @@ for(var i = 0; i < projects.length; i++){
         img.src = newImg.src;
         console.log('loaded');
     }
-    newImg.src = './thumbnails/' + projects[i].img;
+    newImg.src = './Thumbnails/' + projects[i].img;
     item.classList = "item";
         title.classList = "title";
         thumbnail.classList = "thumbnail";

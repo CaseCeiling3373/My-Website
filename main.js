@@ -15,10 +15,13 @@ for(var i = 0; i < projects.length; i++){
         location.href = l;
         });
     inform.innerHTML = projects[i].inform;
-    const newImg = new Image();
+    const newImg = new Image;
     newImg.onload = function(){
         img.src = newImg.src;
-        item.classList = "item";
+        console.log('loaded');
+    }
+    newImg.src = './thumbnails/' + projects[i].img;
+    item.classList = "item";
         title.classList = "title";
         thumbnail.classList = "thumbnail";
         inform.classList = "inform";
@@ -30,9 +33,6 @@ for(var i = 0; i < projects.length; i++){
         thumbnail.appendChild(img);
 
         webContainer.appendChild(item);
-    }
-    newImg.src = './thumbnails/' + projects[i].img;
-
     
 }
 

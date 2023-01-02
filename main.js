@@ -15,20 +15,25 @@ for(var i = 0; i < projects.length; i++){
         location.href = l;
         });
     inform.innerHTML = projects[i].inform;
-    img.src = './thumbnails/' + projects[i].img;
+    const newImg = new Image();
+    newImg.onload = function(){
+        img.src = newImg.src;
+        item.classList = "item";
+        title.classList = "title";
+        thumbnail.classList = "thumbnail";
+        inform.classList = "inform";
 
-    item.classList = "item";
-    title.classList = "title";
-    thumbnail.classList = "thumbnail";
-    inform.classList = "inform";
+        item.appendChild(title);
+        item.appendChild(inform);
+        item.appendChild(link);
+        item.appendChild(thumbnail);
+        thumbnail.appendChild(img);
 
-    item.appendChild(title);
-    item.appendChild(inform);
-    item.appendChild(link);
-    item.appendChild(thumbnail);
-    thumbnail.appendChild(img);
+        webContainer.appendChild(item);
+    }
+    newImg.src = './thumbnails/' + projects[i].img;
 
-    webContainer.appendChild(item);
+    
 }
 
 
